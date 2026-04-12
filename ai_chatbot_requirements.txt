@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+requests
+beautifulsoup4
+pytest
+openai
+googlemaps
+google-cloud-vision
+python-dotenv
+plotly

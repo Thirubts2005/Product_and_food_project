@@ -1,0 +1,9 @@
+streamlit>=1.36.0
+streamlit-option-menu
+pandas
+requests
+plotly
+folium
+streamlit-folium
+beautifulsoup4
+python-dotenv

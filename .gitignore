@@ -1,0 +1,13 @@
+# Environments
+.env
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Database and Data
+*.db
+*.sqlite3
+*.json
+archive/
+tmp/
