@@ -1,0 +1,37 @@
+# Secure GitHub Push Plan
+
+The goal is to push the project to GitHub without exposing any API keys, personal shopping data, or private information.
+
+## Proposed Changes
+
+### [requirements.txt](file:///d:/Project5/requirements.txt)
+We will add `python-dotenv` to manage secrets via an environment file.
+#### [MODIFY] [requirements.txt](file:///d:/Project5/requirements.txt)
+
+### [telegram_utils.py](file:///d:/Project5/telegram_utils.py)
+We will modify the file to read the `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` from environment variables rather than hardcoding them.
+#### [MODIFY] [telegram_utils.py](file:///d:/Project5/telegram_utils.py)
+
+### `.gitignore`
+We will create a `.gitignore` file to ensure the following are not tracked by version control:
+- `.env` (API keys and secrets)
+- `*.db`, `*.sqlite3` (SQLite databases containing private records)
+- `*.json` (JSON dumps containing user history and preferences)
+- `__pycache__/` and `*.pyc` (Python artifacts)
+- `tmp/`, `archive/`
+#### [NEW] [.gitignore](file:///d:/Project5/.gitignore)
+
+## Configuration Changes
+We will instruct the user to create a `.env` file locally containing their credentials, which will remain un-pushed.
+```env
+TELEGRAM_BOT_TOKEN="8793583458:AAHrNyk_kkZH2pt8rnhejl2Tbx3wm-YtWX4"
+TELEGRAM_CHAT_ID="8456960781"
+```
+
+## Verification Plan
+
+### Automated Tests
+- Run `git init` and then `git status` in the background to ensure that [grocery.db](file:///d:/Project5/grocery.db), [shopping_data.json](file:///d:/Project5/shopping_data.json), [Distance_db.json](file:///d:/Project5/Distance_db.json), `.env`, and similar private files are correctly excluded from the staging area.
+
+### Manual Verification
+- We will instruct the user to run `git commit` and `git push` with the remote repository URL they provide.
